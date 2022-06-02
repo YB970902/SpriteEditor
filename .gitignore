@@ -32,3 +32,5 @@
 *.app
 
 /project/.vs/
+/project/Debug/
+/project/Release/
