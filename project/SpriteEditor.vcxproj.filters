@@ -16,14 +16,38 @@
     <Filter Include="PCH">
       <UniqueIdentifier>{cf0ffc19-da51-4faa-9b76-18f0712ff1c9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Manager">
+      <UniqueIdentifier>{15dda57e-a418-47ca-9584-5a3c32319ce2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
+    <ClCompile Include="..\src\Manager\WindowManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PCH\stdafx.cpp">
       <Filter>PCH</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PCH\Globals.cpp">
+      <Filter>PCH</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\main.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
+    <ClInclude Include="..\src\Manager\WindowManager.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PCH\stdafx.h">
+      <Filter>PCH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PCH\Headers.h">
+      <Filter>PCH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PCH\Defines.h">
+      <Filter>PCH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PCH\Globals.h">
       <Filter>PCH</Filter>
     </ClInclude>
   </ItemGroup>
