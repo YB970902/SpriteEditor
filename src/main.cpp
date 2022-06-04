@@ -3,8 +3,6 @@
 #include <crtdbg.h>
 #define _CRTDBG_MAP_ALLOC
 
-LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);
-
 int APIENTRY wWinMain(HINSTANCE _hInstance, HINSTANCE _hPrevInstance, LPWSTR _lpszCmdParam, int nCmdShow)
 {
 #ifdef _DEBUG

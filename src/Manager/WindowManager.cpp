@@ -5,12 +5,11 @@ void WindowManager::Init(LPWSTR title)
 {
 	mpTitle = title;
 	createWindowClass();
-	renderWindow();
 }
 
 void WindowManager::Release()
 {
-	//SAFE_RELEASE(mpGameRoot);
+	
 }
 
 void WindowManager::Run()
@@ -24,13 +23,10 @@ void WindowManager::Run()
 			TranslateMessage(&mMessage);
 			DispatchMessage(&mMessage);
 		}
-		else
-		{
-			//mpGameRoot->Run();
-		}
 	}
 }
 
+// 기본적인 동작에 대한 설정
 LRESULT WindowManager::WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 {
 	switch (iMessage)
@@ -50,6 +46,7 @@ LRESULT WindowManager::WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM l
 
 void WindowManager::createWindowClass()
 {
+	// 윈도우 클래스 생성 및 등록
 	WNDCLASS wndClass;
 	wndClass.cbClsExtra = 0;
 	wndClass.cbWndExtra = 0;
@@ -63,6 +60,7 @@ void WindowManager::createWindowClass()
 	wndClass.style = CS_VREDRAW | CS_HREDRAW;
 	RegisterClass(&wndClass);
 
+	// 윈도우 생성
 	g_hWnd = CreateWindowEx(
 		WS_EX_APPWINDOW,
 		mpTitle,
@@ -76,12 +74,7 @@ void WindowManager::createWindowClass()
 		nullptr,
 		g_hInstance,
 		nullptr);
-}
 
-void WindowManager::renderWindow()
-{
+	// 윈도우가 보이도록 설정
 	ShowWindow(g_hWnd, g_nCmdShow);
-
-	//mpGameRoot = new GameRoot();
-	//mpGameRoot->Init();
 }
