@@ -23,6 +23,9 @@
     <ClCompile Include="..\src\Manager\WindowManager.cpp" />
     <ClCompile Include="..\src\PCH\Globals.cpp" />
     <ClCompile Include="..\src\PCH\stdafx.cpp" />
+    <ClCompile Include="..\src\SpriteEditor\EditArea\EditArea.cpp" />
+    <ClCompile Include="..\src\SpriteEditor\SettingArea\SettingArea.cpp" />
+    <ClCompile Include="..\src\SpriteEditor\SpriteEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Manager\WindowManager.h" />
@@ -30,6 +33,9 @@
     <ClInclude Include="..\src\PCH\Globals.h" />
     <ClInclude Include="..\src\PCH\Headers.h" />
     <ClInclude Include="..\src\PCH\stdafx.h" />
+    <ClInclude Include="..\src\SpriteEditor\EditArea\EditArea.h" />
+    <ClInclude Include="..\src\SpriteEditor\SettingArea\SettingArea.h" />
+    <ClInclude Include="..\src\SpriteEditor\SpriteEditor.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -103,7 +109,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\src\PCH\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\library;$(ProjectDir)..\src\;$(ProjectDir)..\src\PCH\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

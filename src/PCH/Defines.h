@@ -8,6 +8,9 @@
 #define WINDOW_WIDTH 1280
 #define WINDOW_HEIGHT 720
 
+#define EDIT_WIDTH 900
+#define SET_WIDTH 380
+
 #define WINDOW_TITLE (LPWSTR)TEXT("Sprite Editor")
 
 

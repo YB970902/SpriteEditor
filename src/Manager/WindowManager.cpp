@@ -1,15 +1,21 @@
 #include "stdafx.h"
 #include "WindowManager.h"
 
+ULONG_PTR WindowManager::mGpToken = 0;
+SpriteEditor* WindowManager::mpSpriteEditor = nullptr;
+
 void WindowManager::Init(LPWSTR title)
 {
 	mpTitle = title;
+	mpSpriteEditor = new SpriteEditor();
+	initGdiplus();
 	createWindowClass();
+	mpSpriteEditor->Init();
 }
 
 void WindowManager::Release()
 {
-	
+	SAFE_RELEASE(mpSpriteEditor);
 }
 
 void WindowManager::Run()
@@ -37,11 +43,20 @@ LRESULT WindowManager::WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM l
 	case WM_LBUTTONDOWN:
 		break;
 	case WM_DESTROY:
+		GdiplusShutdown(mGpToken);
 		PostQuitMessage(0);
 		break;
 	}
 
-	return DefWindowProc(hWnd, iMessage, wParam, lParam);
+	return mpSpriteEditor->WndProc(hWnd, iMessage, wParam, lParam);
+}
+
+void WindowManager::initGdiplus()
+{
+	GdiplusStartupInput gpsi;	// GDI+의 처리 방식에 추가적인 옵션을 설정하는 변수
+	// 잘못된 옵션이 설정되거나 그래픽 장치가 GDI+를 지원하지 못하면
+	// GdiplusStartup 함수가 실패할수도 있음
+	assert(GdiplusStartup(&mGpToken, &gpsi, NULL) == Ok, "This device not support gdiplus!");
 }
 
 void WindowManager::createWindowClass()
