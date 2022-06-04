@@ -1,15 +1,19 @@
 #include "stdafx.h"
 #include "WindowManager.h"
 
+SpriteEditor* WindowManager::mpSpriteEditor = nullptr;
+
 void WindowManager::Init(LPWSTR title)
 {
 	mpTitle = title;
+	mpSpriteEditor = new SpriteEditor();
+	mpSpriteEditor->Init();
 	createWindowClass();
 }
 
 void WindowManager::Release()
 {
-	
+	SAFE_RELEASE(mpSpriteEditor);
 }
 
 void WindowManager::Run()
@@ -41,7 +45,7 @@ LRESULT WindowManager::WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM l
 		break;
 	}
 
-	return DefWindowProc(hWnd, iMessage, wParam, lParam);
+	return mpSpriteEditor->WndProc(hWnd, iMessage, wParam, lParam);
 }
 
 void WindowManager::createWindowClass()

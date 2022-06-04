@@ -19,6 +19,15 @@
     <Filter Include="Manager">
       <UniqueIdentifier>{15dda57e-a418-47ca-9584-5a3c32319ce2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SpriteEditor">
+      <UniqueIdentifier>{8b1df7a9-bc73-4d77-a136-3bfe2c0fee25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SpriteEditor\SettingArea">
+      <UniqueIdentifier>{018ab9ef-a426-424a-9a27-711c0cf3d981}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SpriteEditor\EditArea">
+      <UniqueIdentifier>{4cb714a7-35d7-4de1-ba1d-72ca4184719a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Manager\WindowManager.cpp">
@@ -32,6 +41,15 @@
     </ClCompile>
     <ClCompile Include="..\src\main.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SpriteEditor\SpriteEditor.cpp">
+      <Filter>SpriteEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SpriteEditor\EditArea\EditArea.cpp">
+      <Filter>SpriteEditor\EditArea</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SpriteEditor\SettingArea\SettingArea.cpp">
+      <Filter>SpriteEditor\SettingArea</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -49,6 +67,15 @@
     </ClInclude>
     <ClInclude Include="..\src\PCH\Globals.h">
       <Filter>PCH</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SpriteEditor\SpriteEditor.h">
+      <Filter>SpriteEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SpriteEditor\EditArea\EditArea.h">
+      <Filter>SpriteEditor\EditArea</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SpriteEditor\SettingArea\SettingArea.h">
+      <Filter>SpriteEditor\SettingArea</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
