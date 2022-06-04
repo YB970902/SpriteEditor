@@ -1,6 +1,6 @@
 #pragma once
 
-HINSTANCE	g_hInstance;
-HWND		g_hWnd;
-int			g_nCmdShow;
-int			g_wheel;
+extern HINSTANCE	g_hInstance;
+extern HWND			g_hWnd;
+extern int			g_nCmdShow;
+extern int			g_wheel;

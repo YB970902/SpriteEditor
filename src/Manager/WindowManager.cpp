@@ -1,4 +1,4 @@
-#include "../PCH/stdafx.h"
+#include "stdafx.h"
 #include "WindowManager.h"
 
 void WindowManager::Init(LPWSTR title)
@@ -38,6 +38,8 @@ LRESULT WindowManager::WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM l
 	case WM_MOUSEWHEEL:
 		g_wheel = GET_WHEEL_DELTA_WPARAM(wParam) / WHEEL_DELTA;
 		break;
+	case WM_LBUTTONDOWN:
+		break;
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;
@@ -55,23 +57,21 @@ void WindowManager::createWindowClass()
 	wndClass.hCursor = LoadCursor(NULL, IDC_ARROW);
 	wndClass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 	wndClass.hInstance = g_hInstance;
-	//wndClass.lpfnWndProc = WndProc;
+	wndClass.lpfnWndProc = WndProc;
 	wndClass.lpszClassName = mpTitle;
 	wndClass.lpszMenuName = mpTitle;
 	wndClass.style = CS_VREDRAW | CS_HREDRAW;
 	RegisterClass(&wndClass);
 
-	ShowCursor(false);
-
 	g_hWnd = CreateWindowEx(
 		WS_EX_APPWINDOW,
 		mpTitle,
 		mpTitle,
-		WS_POPUP,
-		0,
-		0,
-		GetSystemMetrics(SM_CXSCREEN),
-		GetSystemMetrics(SM_CYSCREEN),
+		WS_OVERLAPPEDWINDOW,
+		WINDOW_POS_X,
+		WINDOW_POS_Y,
+		WINDOW_WIDTH,
+		WINDOW_HEIGHT,
 		nullptr,
 		nullptr,
 		g_hInstance,

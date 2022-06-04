@@ -13,7 +13,7 @@ public:
 
 	MSG GetWindowMsg() { return mMessage; }
 
-	LRESULT WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);
+	static LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);
 
 private:
 	void createWindowClass();
