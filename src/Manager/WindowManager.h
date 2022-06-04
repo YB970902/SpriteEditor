@@ -7,6 +7,7 @@ private:
 	MSG mMessage;
 	WNDCLASS mWndClass;
 	LPWSTR mpTitle;
+	static ULONG_PTR mGpToken; // GDI+의 사용을 위한 변수
 
 	static SpriteEditor* mpSpriteEditor;
 public:
@@ -20,5 +21,6 @@ public:
 	static LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);
 
 private:
+	void initGdiplus();
 	void createWindowClass();
 };

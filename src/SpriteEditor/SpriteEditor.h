@@ -4,6 +4,10 @@ class EditArea;
 class SettingArea;
 class SpriteEditor
 {
+private:
+	EditArea* mpEditArea = nullptr;
+	SettingArea* mpSettingArea = nullptr;
+
 public:
 	void Init();
 	void Release();

@@ -5,10 +5,16 @@
 
 void SpriteEditor::Init()
 {
+	mpEditArea = new EditArea();
+	mpEditArea->Init();
+	mpSettingArea = new SettingArea();
+	mpSettingArea->Init();
 }
 
 void SpriteEditor::Release()
 {
+	SAFE_RELEASE(mpEditArea);
+	SAFE_RELEASE(mpSettingArea);
 }
 
 LRESULT SpriteEditor::WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
