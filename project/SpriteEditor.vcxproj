@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\Manager\DrawManager.cpp" />
     <ClCompile Include="..\src\Manager\WindowManager.cpp" />
     <ClCompile Include="..\src\PCH\Globals.cpp" />
     <ClCompile Include="..\src\PCH\stdafx.cpp" />
@@ -28,6 +29,7 @@
     <ClCompile Include="..\src\SpriteEditor\SpriteEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\Manager\DrawManager.h" />
     <ClInclude Include="..\src\Manager\WindowManager.h" />
     <ClInclude Include="..\src\PCH\Defines.h" />
     <ClInclude Include="..\src\PCH\Globals.h" />
@@ -110,6 +112,7 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(ProjectDir)..\library;$(ProjectDir)..\src\;$(ProjectDir)..\src\PCH\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

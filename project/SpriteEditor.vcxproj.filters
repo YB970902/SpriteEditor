@@ -28,11 +28,14 @@
     <Filter Include="SpriteEditor\EditArea">
       <UniqueIdentifier>{4cb714a7-35d7-4de1-ba1d-72ca4184719a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Manager\WindowManager">
+      <UniqueIdentifier>{cd1a94de-ef8d-4d03-acce-692e149ff4bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\DrawManager">
+      <UniqueIdentifier>{ee2d2320-ec88-4c02-b755-9443bed115fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\Manager\WindowManager.cpp">
-      <Filter>Manager</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\PCH\stdafx.cpp">
       <Filter>PCH</Filter>
     </ClCompile>
@@ -51,11 +54,14 @@
     <ClCompile Include="..\src\SpriteEditor\SettingArea\SettingArea.cpp">
       <Filter>SpriteEditor\SettingArea</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Manager\WindowManager.cpp">
+      <Filter>Manager\WindowManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Manager\DrawManager.cpp">
+      <Filter>Manager\DrawManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\Manager\WindowManager.h">
-      <Filter>Manager</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\PCH\stdafx.h">
       <Filter>PCH</Filter>
     </ClInclude>
@@ -76,6 +82,12 @@
     </ClInclude>
     <ClInclude Include="..\src\SpriteEditor\SettingArea\SettingArea.h">
       <Filter>SpriteEditor\SettingArea</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Manager\WindowManager.h">
+      <Filter>Manager\WindowManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Manager\DrawManager.h">
+      <Filter>Manager\DrawManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
