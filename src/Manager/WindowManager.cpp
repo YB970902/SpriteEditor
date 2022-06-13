@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "WindowManager.h"
 
 ULONG_PTR WindowManager::mGpToken = 0;
@@ -32,7 +32,7 @@ void WindowManager::Run()
 	}
 }
 
-// ±âº»ÀûÀÎ µ¿ÀÛ¿¡ ´ëÇÑ ¼³Á¤
+// ê¸°ë³¸ì ì¸ ë™ì‘ì— ëŒ€í•œ ì„¤ì •
 LRESULT WindowManager::WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 {
 	switch (iMessage)
@@ -53,15 +53,15 @@ LRESULT WindowManager::WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM l
 
 void WindowManager::initGdiplus()
 {
-	GdiplusStartupInput gpsi;	// GDI+ÀÇ Ã³¸® ¹æ½Ä¿¡ Ãß°¡ÀûÀÎ ¿É¼ÇÀ» ¼³Á¤ÇÏ´Â º¯¼ö
-	// Àß¸øµÈ ¿É¼ÇÀÌ ¼³Á¤µÇ°Å³ª ±×·¡ÇÈ ÀåÄ¡°¡ GDI+¸¦ Áö¿øÇÏÁö ¸øÇÏ¸é
-	// GdiplusStartup ÇÔ¼ö°¡ ½ÇÆĞÇÒ¼öµµ ÀÖÀ½
+	GdiplusStartupInput gpsi;	// GDI+ì˜ ì²˜ë¦¬ ë°©ì‹ì— ì¶”ê°€ì ì¸ ì˜µì…˜ì„ ì„¤ì •í•˜ëŠ” ë³€ìˆ˜
+	// ì˜ëª»ëœ ì˜µì…˜ì´ ì„¤ì •ë˜ê±°ë‚˜ ê·¸ë˜í”½ ì¥ì¹˜ê°€ GDI+ë¥¼ ì§€ì›í•˜ì§€ ëª»í•˜ë©´
+	// GdiplusStartup í•¨ìˆ˜ê°€ ì‹¤íŒ¨í• ìˆ˜ë„ ìˆìŒ
 	assert(GdiplusStartup(&mGpToken, &gpsi, NULL) == Ok, "This device not support gdiplus!");
 }
 
 void WindowManager::createWindowClass()
 {
-	// À©µµ¿ì Å¬·¡½º »ı¼º ¹× µî·Ï
+	// ìœˆë„ìš° í´ë˜ìŠ¤ ìƒì„± ë° ë“±ë¡
 	WNDCLASS wndClass;
 	wndClass.cbClsExtra = 0;
 	wndClass.cbWndExtra = 0;
@@ -75,7 +75,7 @@ void WindowManager::createWindowClass()
 	wndClass.style = CS_VREDRAW | CS_HREDRAW;
 	RegisterClass(&wndClass);
 
-	// À©µµ¿ì »ı¼º
+	// ìœˆë„ìš° ìƒì„±
 	g_hWnd = CreateWindowEx(
 		WS_EX_APPWINDOW,
 		mpTitle,
@@ -90,6 +90,13 @@ void WindowManager::createWindowClass()
 		g_hInstance,
 		nullptr);
 
-	// À©µµ¿ì°¡ º¸ÀÌµµ·Ï ¼³Á¤
+	// ìœˆë„ìš°ê°€ ë³´ì´ë„ë¡ ì„¤ì •
 	ShowWindow(g_hWnd, g_nCmdShow);
+
+	RECT rc = { 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT };
+
+	// borderë¥¼ ê³„ì‚°í•œ ìœˆë„ìš°ì˜ í¬ê¸° ë°˜í™˜
+	AdjustWindowRectEx(&rc, WS_OVERLAPPEDWINDOW, false, 0);
+	// ìœˆë„ìš° í¬ê¸° ì¬ì„¤ì •
+	SetWindowPos(g_hWnd, HWND_TOP, WINDOW_POS_X, WINDOW_POS_Y, rc.right - rc.left, rc.bottom - rc.top, 0);
 }
